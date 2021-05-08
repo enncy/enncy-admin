@@ -1,0 +1,70 @@
+/**
+ * 全局 css
+ */
+/**
+ * 以下是 边框 通用 css
+ */
+.padding-10 {
+  padding: 10px;
+}
+.padding-20 {
+  padding: 20px;
+}
+.padding-30 {
+  padding: 30px;
+}
+.padding-40 {
+  padding: 40px;
+}
+.margin-10 {
+  margin: 10px;
+}
+.margin-20 {
+  margin: 20px;
+}
+.margin-30 {
+  margin: 30px;
+}
+.margin-40 {
+  margin: 40px;
+}
+.border-normal {
+  border: 1px solid ghostwhite;
+}
+.border-shadow {
+  box-shadow: 0px 0px 4px gray;
+}
+/**
+ * 以下是 颜色 通用 css
+ */
+/**
+ * 以下是 字体 通用 css
+ */
+/**
+ * 以下是 flex 通用 css
+ */
+.d-flex {
+  display: flex;
+}
+.flex-center {
+  justify-content: center;
+}
+.flex-right {
+  justify-content: flex-end;
+}
+.flex-left {
+  justify-content: flex-start;
+}
+.flex-align-center {
+  align-items: center;
+}
+/**
+ * 以下是 布局 通用 css
+ */
+.full-parent {
+  width: 100%;
+  height: 100%;
+}
+.text-center {
+  text-align: center;
+}

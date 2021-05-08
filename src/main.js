@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import antdv from 'ant-design-vue'
 
-import 'ant-design-vue/dist/antd'
+import 'ant-design-vue/dist/antd.css'
+import '@/assets/common.css'
 
 Vue.config.productionTip = false
 Vue.use(antdv)
