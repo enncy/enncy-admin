@@ -2,31 +2,40 @@
  * 全局 css
  */
 /**
+ * 尺寸大小变量
+ */
+/**
  * 以下是 边框 通用 css
  */
-.padding-10 {
-  padding: 10px;
+.padding-small {
+  padding: 4px;
 }
-.padding-20 {
-  padding: 20px;
+.padding-medium {
+  padding: 8px;
 }
-.padding-30 {
-  padding: 30px;
+.padding-large {
+  padding: 16px;
 }
-.padding-40 {
-  padding: 40px;
+.padding-large-x {
+  padding: 32px;
 }
-.margin-10 {
-  margin: 10px;
+.padding-large-xx {
+  padding: 64px;
 }
-.margin-20 {
-  margin: 20px;
+.margin-small {
+  margin: 4px;
 }
-.margin-30 {
-  margin: 30px;
+.margin-medium {
+  margin: 8px;
 }
-.margin-40 {
-  margin: 40px;
+.margin-large {
+  margin: 16px;
+}
+.margin-large-xx {
+  margin: 32px;
+}
+.margin-64 {
+  margin: 64px;
 }
 .border-normal {
   border: 1px solid ghostwhite;
@@ -40,6 +49,126 @@
 /**
  * 以下是 字体 通用 css
  */
+.font-size-12 {
+  font-size: 12px;
+}
+.font-size-14 {
+  font-size: 14px;
+}
+.font-size-16 {
+  font-size: 16px;
+}
+.font-size-18 {
+  font-size: 18px;
+}
+.font-size-24 {
+  font-size: 24px;
+}
+.font-size-32 {
+  font-size: 32px;
+}
+.font-size-64 {
+  font-size: 64px;
+}
+p.color-primary,
+span.color-primary,
+div.color-primary,
+h1.color-primary,
+h2.color-primary,
+h3.color-primary,
+h4.color-primary,
+h5.color-primary,
+h6.color-primary {
+  color: #1890ff;
+}
+p.color-white,
+span.color-white,
+div.color-white,
+h1.color-white,
+h2.color-white,
+h3.color-white,
+h4.color-white,
+h5.color-white,
+h6.color-white {
+  color: white;
+}
+p.color-ghost,
+span.color-ghost,
+div.color-ghost,
+h1.color-ghost,
+h2.color-ghost,
+h3.color-ghost,
+h4.color-ghost,
+h5.color-ghost,
+h6.color-ghost {
+  color: ghostwhite;
+}
+p.color-disable,
+span.color-disable,
+div.color-disable,
+h1.color-disable,
+h2.color-disable,
+h3.color-disable,
+h4.color-disable,
+h5.color-disable,
+h6.color-disable {
+  color: rgba(0, 0, 0, 0.25);
+}
+p.color-success,
+span.color-success,
+div.color-success,
+h1.color-success,
+h2.color-success,
+h3.color-success,
+h4.color-success,
+h5.color-success,
+h6.color-success {
+  color: #52c41a;
+}
+p.color-warning,
+span.color-warning,
+div.color-warning,
+h1.color-warning,
+h2.color-warning,
+h3.color-warning,
+h4.color-warning,
+h5.color-warning,
+h6.color-warning {
+  color: #faad14;
+}
+p.color-error,
+span.color-error,
+div.color-error,
+h1.color-error,
+h2.color-error,
+h3.color-error,
+h4.color-error,
+h5.color-error,
+h6.color-error {
+  color: #f5222d;
+}
+p.color-text,
+span.color-text,
+div.color-text,
+h1.color-text,
+h2.color-text,
+h3.color-text,
+h4.color-text,
+h5.color-text,
+h6.color-text {
+  color: rgba(0, 0, 0, 0.65);
+}
+p.color-link,
+span.color-link,
+div.color-link,
+h1.color-link,
+h2.color-link,
+h3.color-link,
+h4.color-link,
+h5.color-link,
+h6.color-link {
+  color: #1890ff;
+}
 /**
  * 以下是 flex 通用 css
  */
@@ -58,6 +187,21 @@
 .flex-align-center {
   align-items: center;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+}
+.d-flex-center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /**
  * 以下是 布局 通用 css
  */
@@ -67,4 +211,28 @@
 }
 .text-center {
   text-align: center;
+}
+.gutter-small div,
+.gutter-small button,
+.gutter-small span,
+.gutter-small p,
+.gutter-small input {
+  margin: 0px 2px 0px 2px;
+}
+.gutter-medium div,
+.gutter-medium button,
+.gutter-medium span,
+.gutter-medium p,
+.gutter-medium input {
+  margin: 0px 4px 0px 4px;
+}
+.gutter-large div,
+.gutter-large button,
+.gutter-large span,
+.gutter-large p,
+.gutter-large input {
+  margin: 0px 6px 0px 6px;
+}
+.cursor-pointer {
+  cursor: pointer;
 }

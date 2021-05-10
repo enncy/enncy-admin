@@ -2,6 +2,60 @@
 /**
  * 以下是 字体 通用 css
  */
+@import "color";
 
+.font-size-12{
+  font-size: 12px;
+}
 
+.font-size-14{
+  font-size: 14px;
+}
 
+.font-size-16{
+  font-size: 16px;
+}
+.font-size-18{
+  font-size: 18px;
+}
+
+.font-size-24{
+  font-size: 24px;
+}
+
+.font-size-32{
+  font-size: 32px;
+}
+.font-size-64{
+  font-size: 64px;
+}
+
+p,span,div,h1,h2,h3,h4,h5,h6 {
+  &.color-primary{
+    color: @primary-color;
+  }
+  &.color-white{
+    color: white;
+  }
+  &.color-ghost{
+    color: ghostwhite;
+  }
+  &.color-disable{
+    color: @disabled-color;
+  }
+  &.color-success{
+    color: @success-color;
+  }
+  &.color-warning{
+    color: @warning-color;
+  }
+  &.color-error{
+    color: @error-color;
+  }
+  &.color-text{
+    color: @text-color;
+  }
+  &.color-link{
+    color: @link-color;
+  }
+}

@@ -1,11 +1,11 @@
 <template>
   <!--基础上中下布局-->
   <a-layout>
-    <a-layout-header style="background-color: white">
+    <a-layout-header :style="headerStyle" >
       <slot name="header"></slot>
     </a-layout-header>
 
-    <a-layout-content class="padding-40">
+    <a-layout-content class="padding-large-x">
       <slot name="content"></slot>
     </a-layout-content>
 
@@ -19,6 +19,9 @@
 
 export default {
   name: 'BaseLayout',
+  props: {
+    headerStyle: Object
+  },
   components: {},
   data() {
     return {};

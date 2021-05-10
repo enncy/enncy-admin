@@ -1,34 +1,127 @@
 <template>
-  <sider-layout>
+  <adapt-layout layout="navigation">
+
+    <template slot="logo">
+      <a-row class="d-flex flex-left flex-align-center" :gutter="10">
+        <a-col ><ant-design-vue-logo/></a-col>
+        <a-col><div class="color-white   d-flex-center-align" style="font-weight: bold;font-size: 20px">Enncy Admin</div></a-col>
+      </a-row>
+    </template>
+
     <template slot="menu">
-      <nested-menu mode="vertical"></nested-menu>
+      <nested-menu mode="horizontal" :menu="menu"></nested-menu>
     </template>
+
+
+    <template slot="header">
+      <a-row class="d-flex flex-right flex-align-center" :gutter="20">
+        <!--头像-->
+        <a-col>
+          <avatar-menu></avatar-menu>
+        </a-col>
+        <!--设置面板抽屉-->
+        <a-col>
+          <setting-drawer/>
+        </a-col>
+      </a-row>
+    </template>
+
     <template slot="content">
-      index
+     <div class="full-parent">
+       <a-card title="按钮组件" :bordered="false" size="small">
+         <a-row  v-child-margin="{right:10,top:100}" >
+           <a-button type="primary">
+             Primary
+           </a-button>
+           <a-button>Default</a-button>
+           <a-button type="dashed">
+             Dashed
+           </a-button>
+           <a-button type="danger">
+             Danger
+           </a-button>
+           <a-config-provider :auto-insert-space-in-button="false">
+             <a-button type="primary">
+               按钮
+             </a-button>
+           </a-config-provider>
+           <a-button type="primary">
+             按钮
+           </a-button>
+           <a-button type="link">
+             Link
+           </a-button>
+         </a-row>
+       </a-card>
+
+     </div>
     </template>
+
+
     <template slot="footer">
       foot
     </template>
-  </sider-layout>
+  </adapt-layout>
 </template>
 
 <script>
 
 
-import SiderLayout from "@/layout/SiderLayout";
-import NestedMenu from "@/components/menu/NestedMenu";
+import NestedMenu from "@/components/common/menu/NestedMenu";
+import SettingDrawer from "@/components/common/setting/SettingDrawer";
+import AdaptLayout from "@/layout/AdaptLayout";
+import AvatarMenu from "@/components/AvatarMenu";
+import AntDesignVueLogo from "@/components/common/logo/AntDesignVueLogo";
+
 export default {
-    components: {NestedMenu, SiderLayout },
-    data() {
-        return {
-        
-        };
-    },
-    methods: {
-    
-    },
-    mounted() {},
-    destroyed() {}, 
+  components: {AntDesignVueLogo, AvatarMenu, AdaptLayout, SettingDrawer, NestedMenu},
+  data() {
+    return {
+      menu:[
+        {
+          key: '1',
+          title: '仪表盘',
+          icon:'pie-chart'
+        },
+        {
+          key: '2',
+          title: '表单页',
+          icon: 'form'
+        },
+        {
+          key: '3',
+          title: '列表页',
+          icon:'table'
+        },
+        {
+          key: '4',
+          title: '详情页',
+          icon:'info-circle'
+        },
+        {
+          key: '5',
+          title: '结果页',
+          icon:'check-circle'
+        },
+        {
+          key: '6',
+          title: '个人管理',
+          icon:'user',
+          children: [
+            {
+              key: '6.1',
+              title: '个人中心',
+
+            },
+            {
+              key: '6.2',
+              title: '个人设置',
+            },
+          ],
+        },
+      ],
+    };
+  },
 }
 </script>
 <style scoped>

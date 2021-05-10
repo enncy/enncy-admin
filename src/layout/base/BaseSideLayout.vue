@@ -1,6 +1,6 @@
 <template>
   <a-layout>
-    <a-layout-sider breakpoint="lg" collapsed-width="0">
+    <a-layout-sider breakpoint="sm" collapsed-width="0" width="240">
       <slot name="logo">
         <!--默认logo-->
         <div class="logo" />
@@ -15,7 +15,12 @@
  
 <script>
 export default {
-    name:"BaseSiderLayout"
+    name:"BaseSideLayout",
+  data(){
+      return{
+      }
+  },
+
 }
 </script>
 
