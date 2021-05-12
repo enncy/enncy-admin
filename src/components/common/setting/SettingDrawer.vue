@@ -84,10 +84,10 @@ export default {
       //设置按钮是否旋转
       spin: false,
       //默认主色
-      primaryColor:this.getSettings().primaryColor,
-      successColor:this.getSettings().successColor,
-      warningColor:this.getSettings().warningColor,
-      errorColor:this.getSettings().errorColor,
+      primaryColor:this.getSettings().color.primaryColor,
+      successColor:this.getSettings().color.successColor,
+      warningColor:this.getSettings().color.warningColor,
+      errorColor:this.getSettings().color.errorColor,
       //默认颜色
       colors: ['#1890ff', '#f5222d', '#fa541c', '#faad14', '#52c41a', '#2f54eb', '#722ed1'],
     };
@@ -134,6 +134,16 @@ export default {
         '@warning-color': this.warningColor,
         '@error-color': this.errorColor,
       })
+      this.updateSettingColor(this.primaryColor,this.successColor,this.warningColor, this.errorColor)
+
+    },
+    //更新 vuex的数据
+    updateSettingColor(primaryColor,successColor,warningColor,errorColor) {
+
+      this.$store.dispatch('setting/setColorAction',{
+        primaryColor,  successColor,  warningColor, errorColor,
+      })
+      console.log(this.getSettings())
     },
     //修改主题颜色
     updateTheme(primaryColor) {
@@ -141,6 +151,7 @@ export default {
       window?.less?.modifyVars({
         '@primary-color': primaryColor,
       })
+      this.updateSettingColor(this.primaryColor,this.successColor,this.warningColor, this.errorColor)
     },
     //修改布局
     updateLayout(layout) {
@@ -167,17 +178,6 @@ export default {
   background: white;
   margin: 0px 2px 0px 2px;
   cursor: pointer;
-  -webkit-appearance:none;
-  -moz-appearance: none;
-  outline:0;
 }
 
-.color-picker {
-  /*border: 1px solid white;*/
-  border-radius: 4px;
-  width: 90%;
-  height: 32px;
-  border:none;
-  background-color:transparent;
-}
 </style>
