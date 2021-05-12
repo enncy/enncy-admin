@@ -1,6 +1,6 @@
 <template>
-  <a-row class="full-parent">
-    <a-col class="d-flex flex-center flex-align-center  padding-large full-parent">
+  <a-row class="full-parent flex-center d-flex"  >
+    <a-col class="d-flex flex-center flex-align-center " style="padding: 32px 0" :span="23" :lg="22">
       <slot></slot>
     </a-col>
   </a-row>

@@ -2,7 +2,7 @@
   <a-sub-menu :key="menuInfo.key" v-bind="$props" v-on="$listeners">
     <!--设置菜单信息-->
     <span slot="title">
-      <a-icon v-if="menuInfo.icon" :type="menuInfo.icon"/>
+      <a-icon style="font-size: 18px"  v-if="menuInfo.icon" :type="menuInfo.icon"/>
       <span>{{ menuInfo.title }}</span>
     </span>
     <!--遍历子菜单-->

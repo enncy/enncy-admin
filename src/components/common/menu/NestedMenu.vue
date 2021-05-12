@@ -4,13 +4,14 @@
       :default-selected-keys="[1]"
       :default-open-keys="[1]"
       :mode="adaptMode"
-      :theme="adaptTheme"
+      :theme="theme"
       :style="{ lineHeight: '64px' }"
 
   >
-    <template v-for="item in menu">
+
+    <template v-for="item in list">
       <a-menu-item v-if="!item.children" :key="item.key">
-        <a-icon v-if="item.icon" :type="item.icon"/>
+        <a-icon style="font-size: 18px" v-if="item.icon" :type="item.icon"/>
         <span>{{ item.title }}</span>
       </a-menu-item>
       <nested-sub-menu v-else :key="item.key" :menu-info="item"/>
@@ -35,19 +36,18 @@ export default {
       default: 'dark'
     },
     //菜单栏数据
-    menu:Array
+    list:Array
   },
   computed: {
     screenWidth(){
       return this.$store.state.setting.screenWidth
     },
     adaptMode(){
-      return this.screenWidth<600?'inline':this.mode
+      return this.$store.state.setting.screenWidth<600?'inline':this.mode
     },
-    adaptTheme(){
-      return this.screenWidth<600?'dark':this.theme
-    }
+
   },
+
   data() {
     return {
       //是否折叠

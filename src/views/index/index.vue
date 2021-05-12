@@ -1,16 +1,14 @@
 <template>
-  <adapt-layout layout="navigation">
+  <adapt-layout :layout="setting.layout">
 
     <template slot="logo">
-      <a-row class="d-flex flex-left flex-align-center" :gutter="10">
-        <a-col ><ant-design-vue-logo/></a-col>
-        <a-col><div class="color-white   d-flex-center-align" style="font-weight: bold;font-size: 20px">Enncy Admin</div></a-col>
-      </a-row>
+      <ant-design-vue-logo title="Enncy Admin"/>
     </template>
 
     <template slot="menu">
-      <nested-menu mode="horizontal" :menu="menu"></nested-menu>
+      <nested-menu :mode="setting.menu.mode" :theme="setting.menu.theme" :list="list"></nested-menu>
     </template>
+
 
 
     <template slot="header">
@@ -69,15 +67,23 @@
 
 import NestedMenu from "@/components/common/menu/NestedMenu";
 import SettingDrawer from "@/components/common/setting/SettingDrawer";
-import AdaptLayout from "@/layout/AdaptLayout";
+import AdaptLayout from "@/layout/common/AdaptLayout";
 import AvatarMenu from "@/components/AvatarMenu";
 import AntDesignVueLogo from "@/components/common/logo/AntDesignVueLogo";
 
 export default {
   components: {AntDesignVueLogo, AvatarMenu, AdaptLayout, SettingDrawer, NestedMenu},
+  computed: {
+    setting(){
+     return  this.$store.state.setting.setting
+    },
+
+  },
+
   data() {
     return {
-      menu:[
+
+      list:[
         {
           key: '1',
           title: '仪表盘',

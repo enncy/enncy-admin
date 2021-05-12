@@ -8,15 +8,16 @@ export  default {
         screenWidth: undefined,
 
         //全局设置
-        setting:{
+        setting: {
             //主题颜色
-            primaryColor:'#1890ff',
+            primaryColor: '#1890ff',
             //菜单栏设置
-            menu:{
-                layout:'',
-                mode:'inline',
+            menu: {
+                mode: 'inline',
                 theme: 'dark'
             },
+            //布局设置,默认side，侧边栏布局
+            layout: 'side',
         }
     }),
     mutations: {
@@ -24,7 +25,10 @@ export  default {
             state.screenWidth = screenWidth;
         },
         setMenu(state, menu) {
-            state.menu = menu;
+            state.setting.menu = menu;
+        },
+        setLayout(state, layout) {
+            state.setting.layout = layout;
         },
     },
     actions: {
@@ -33,11 +37,14 @@ export  default {
             context.commit('setScreenWidth', screenWidth);
         },
         setMenuAction(context, menu) {
-            if(!['side','navigation'].find(i=>i===menu?.layout)){
-                throw 'menu layout dose not match the value "side" and "navigation" '
-            }
             context.commit('setMenu', menu);
         },
+        setLayoutAction(context, layout){
+            if(!['side','navigation'].find(i=>i===layout)){
+                throw 'menu layout dose not match the value "side" and "navigation" '
+            }
+            context.commit('setLayout', layout);
+        }
     },
 
 }
