@@ -11,6 +11,9 @@ export  default {
         setting: {
             //主题颜色
             primaryColor: '#1890ff',
+            successColor:'#52c41a',
+            warningColor:'#faad14',
+            errorColor:'#f5222d',
             //菜单栏设置
             menu: {
                 mode: 'inline',

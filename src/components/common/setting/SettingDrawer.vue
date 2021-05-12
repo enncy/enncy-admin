@@ -18,14 +18,33 @@
       <simple-card title="通用主题颜色">
         <div class="d-flex">
           <div v-for="(color,index) in colors" class="color-input" :style="{backgroundColor:color}"
-               @click="updateTheme(color)" :key="index"/>
+               @click="updateTheme(primaryColor)" :key="index"/>
         </div>
       </simple-card>
 
       <!--自定义主色，也就是 @primary-color-->
       <simple-card title="自定义主题颜色">
-        <input type="color" :value="color" class="color-picker" style="border: none" @change="handleChangeColor"/>
+        <a-row >
+          <a-col>
+            <span>主题色</span>
+            <input type="color" v-model="primaryColor" class="color-input" style="border: none"  @change="handleChangeColor"/>
+            <a-divider type="vertical"/>
+            <span>成功色</span>
+            <input type="color" v-model="successColor" class="color-input" style="border: none" @change="handleChangeColor"/>
+          </a-col>
+
+          <a-col>
+            <span >警告色</span>
+            <input type="color" v-model="warningColor" class="color-input" style="border: none" @change="handleChangeColor"/>
+            <a-divider type="vertical"/>
+            <span >错误色</span>
+            <input type="color" v-model="errorColor" class="color-input" style="border: none" @change="handleChangeColor"/>
+          </a-col>
+
+        </a-row>
       </simple-card>
+
+
 
 
       <simple-card title="菜单栏颜色">
@@ -35,6 +54,7 @@
         </div>
       </simple-card>
 
+      <a-divider />
 
       <simple-card title="布局管理">
         <div v-child-margin.right="10">
@@ -64,7 +84,10 @@ export default {
       //设置按钮是否旋转
       spin: false,
       //默认主色
-      color: '#1890ff',
+      primaryColor:this.getSettings().primaryColor,
+      successColor:this.getSettings().successColor,
+      warningColor:this.getSettings().warningColor,
+      errorColor:this.getSettings().errorColor,
       //默认颜色
       colors: ['#1890ff', '#f5222d', '#fa541c', '#faad14', '#52c41a', '#2f54eb', '#722ed1'],
     };
@@ -72,18 +95,22 @@ export default {
   computed: {
     getTextColor() {
       // 如果在侧边栏模式，颜色不变
-     if(this.getSettingState.setting.layout==='side'){
+     if(this.setting.layout==='side'){
        return ''
      }
       return this.$store.state.setting.setting.menu.theme === 'dark' ? '#fff' : '#002140'
     },
-    // 获取设置参数
-    getSettingState() {
-      return this.$store.state.setting
+    // 设置参数
+    setting() {
+      return this.$store.state.setting.setting
     }
   },
 
   methods: {
+    // 获取设置参数
+    getSettings() {
+      return this.$store.state.setting.setting;
+    },
     //点击抽屉事件
     clickDrawer() {
       this.visible = true;
@@ -99,15 +126,20 @@ export default {
       this.spin = true;
     },
     //处理颜色
-    handleChangeColor(e) {
-      console.log(e.target.value)
-      this.updateTheme(e.target.value);
+    handleChangeColor() {
+      console.log(this.successColor)
+      window?.less?.modifyVars({
+        '@primary-color': this.primaryColor,
+        '@success-color': this.successColor,
+        '@warning-color': this.warningColor,
+        '@error-color': this.errorColor,
+      })
     },
     //修改主题颜色
-    updateTheme(color) {
-      this.color = color;
+    updateTheme(primaryColor) {
+      this.primaryColor = primaryColor;
       window?.less?.modifyVars({
-        "@primary-color": color,
+        '@primary-color': primaryColor,
       })
     },
     //修改布局
@@ -135,6 +167,9 @@ export default {
   background: white;
   margin: 0px 2px 0px 2px;
   cursor: pointer;
+  -webkit-appearance:none;
+  -moz-appearance: none;
+  outline:0;
 }
 
 .color-picker {
