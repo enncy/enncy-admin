@@ -1,7 +1,7 @@
 <template>
   <!--用户头像菜单栏-->
 
-  <a-dropdown placement="bottomRight" class="cursor-pointer" :style="{color:getTextColor}">
+  <a-dropdown placement="bottomRight" class="cursor-pointer" :style="{color:getAdaptTextColor}">
     <!--子元素每个右边间隔 10px-->
     <a-row v-child-margin.right="10" class="d-flex  flex-center flex-align-center">
       <a-col>
@@ -34,9 +34,16 @@
 
 <script>
 
+
 export default {
   name: "AvatarMenu",
   components: {},
+  computed: {
+    getAdaptTextColor() {
+      return this.$store.getters['setting/getAdaptTextColor'];
+    }
+  },
+
   data() {
     return {
       list: [
@@ -57,18 +64,7 @@ export default {
       ]
     };
   },
-  computed: {
-    getTextColor() {
-      // 如果在侧边栏模式，颜色不变
-      if (this.getSettingState.setting.layout === 'side') {
-        return ''
-      }
-      return this.$store.state.setting.setting.menu.theme === 'dark' ? '#fff' : '#002140'
-    },
-    getSettingState() {
-      return this.$store.state.setting
-    }
-  },
+
   methods: {},
   mounted() {
   },

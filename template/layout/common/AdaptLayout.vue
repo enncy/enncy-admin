@@ -54,15 +54,17 @@ export default {
     };
   },
 
+
   watch: {
-    //如果屏幕小于 600px 则强制转换布局
+    //如果屏幕小于 600px 则强制转换布局 small 手机端布局
     screenWidth(value) {
       this.$store.dispatch('setting/setScreenWidthAction', value);
       if (value < 600) {
-        this.layoutName = 'side';
+        this.layoutName = 'small';
       } else {
         this.layoutName = this.layout;
       }
+
     },
     layout(value){
       this.layoutName = value;

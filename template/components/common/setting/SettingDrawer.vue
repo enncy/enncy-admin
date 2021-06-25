@@ -3,7 +3,7 @@
 
   <div class=" d-flex flex-align-center" >
     <!--设置按钮，点击的时候旋转-->
-    <a-icon type="setting" class="font-size-24 cursor-pointer " @click="clickDrawer" :spin="spin" :style="{color:getTextColor}"/>
+    <a-icon type="setting" class="font-size-24 cursor-pointer " @click="clickDrawer" :spin="spin" :style="{color:getAdaptTextColor}"/>
     <a-drawer
         title="设置"
         placement="right"
@@ -77,6 +77,7 @@ import SimpleCard from "@/components/common/card/SimpleCard";
 export default {
   name: "SettingDrawer",
   components: {SimpleCard},
+
   data() {
     return {
       //此组件是否可见
@@ -93,18 +94,11 @@ export default {
     };
   },
   computed: {
-    getTextColor() {
-      // 如果在侧边栏模式，颜色不变
-     if(this.setting.layout==='side'){
-       return ''
-     }
-      return this.$store.state.setting.setting.menu.theme === 'dark' ? '#fff' : '#002140'
-    },
-    // 设置参数
-    setting() {
-      return this.$store.state.setting.setting
+    getAdaptTextColor() {
+      return this.$store.getters['setting/getAdaptTextColor'];
     }
   },
+
 
   methods: {
     // 获取设置参数

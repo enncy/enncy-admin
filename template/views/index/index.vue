@@ -27,7 +27,7 @@
     <template slot="content">
      <div class="full-parent">
        <a-card title="按钮组件" :bordered="false" size="small">
-         <a-row  v-child-margin="{right:10,top:100}" >
+         <a-row  v-child-margin="{right:10,top:10}" >
            <a-button type="primary">
              Primary
            </a-button>
