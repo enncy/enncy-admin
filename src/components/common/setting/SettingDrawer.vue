@@ -18,7 +18,7 @@
       <simple-card title="通用主题颜色">
         <div class="d-flex">
           <div v-for="(color,index) in colors" class="color-input" :style="{backgroundColor:color}"
-               @click="updateTheme(primaryColor)" :key="index"/>
+               @click="updateTheme(color)" :key="index"/>
         </div>
       </simple-card>
 
